@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/fragment_timeline_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/fragment_timeline_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_timeline_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    <LinearLayout
+        android:id="@+id/fragent_timeline_bottomsheet"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@drawable/round_corner"
+        android:orientation="vertical"
+        app:behavior_peekHeight="200dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/bottomSheetBar"
+                android:layout_width="80sp"
+                android:layout_height="6dp"
+                android:background="@drawable/bottomsheet_bar" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="#eeeeee"
+            android:id="@+id/fragent_timeline_bottomsheet_fragment_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"></LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:paddingBottom="20sp"
+        app:layout_anchor="@id/fragent_timeline_bottomsheet"
+        app:layout_anchorGravity="top|end">
+
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:layout_width="350sp"
+            android:layout_height="300sp"
+            app:layoutDescription="@xml/fragment_timeline_fab_motion">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragment_timeline_fab_tl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginEnd="20sp"
+                android:layout_marginBottom="20sp"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_timeline_fab_post"
+                app:layout_constraintEnd_toStartOf="@+id/fragment_timeline_fab_post"
+                app:layout_constraintTop_toTopOf="@+id/fragment_timeline_fab_post"
+                app:srcCompat="@drawable/ic_home_24px" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragment_timeline_fab_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginEnd="20sp"
+                android:layout_marginBottom="20sp"
+                android:clickable="true"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_timeline_fab_menu"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_create_24px" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragment_timeline_fab_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginEnd="20sp"
+                android:layout_marginBottom="20sp"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton"
+                app:layout_constraintEnd_toStartOf="@+id/floatingActionButton"
+                app:layout_constraintTop_toTopOf="@+id/floatingActionButton"
+                app:srcCompat="@drawable/ic_person_add_24px" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragment_timeline_fab_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginEnd="20sp"
+                android:layout_marginBottom="20sp"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_timeline_fab_tl"
+                app:layout_constraintEnd_toStartOf="@+id/fragment_timeline_fab_tl"
+                app:layout_constraintTop_toTopOf="@+id/fragment_timeline_fab_tl"
+                app:srcCompat="@drawable/ic_outline_settings_24px" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragment_timeline_fab_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20sp"
+                android:layout_marginBottom="20sp"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_more_vert_24px" />
+
+
+        </androidx.constraintlayout.motion.widget.MotionLayout>
+
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
